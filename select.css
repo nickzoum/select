@@ -92,7 +92,7 @@ ul.drop-down-list>.seperator:hover {
 .drop-down-parent>ul.drop-down-list {
   border-top-right-radius: 0px;
   border-top-left-radius: 0px;
-  border: 1px solid #e5e6e7;
+  border-top: 1px solid #e5e6e7;
   left: 0px;
   top: 100%;
 }
@@ -199,14 +199,21 @@ ul.table-list {
 ul.table-list>li {
   margin: 0 auto;
   float: left;
+  min-width: 100px;
+  max-width: 100px;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .column-title {
+  transition: all 0.4s ease-in-out;
   pointer-events: none;
-  position: absolute;
-  padding: 4px 22px;
+  position: relative;
+  padding: 0px 22px;
   z-index: 9999999;
-  top: 28px;
+  height: 0px;
+  top: 5px;
   right: 0;
   left: 0;
 }
@@ -222,8 +229,13 @@ ul.table-list>li {
   text-align: start;
   font-size: 14px;
   margin: 2px auto;
+  min-width: 100px;
+  max-width: 100px;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
-.column-title+ul.drop-down-list {
+.open .column-title+ul.drop-down-list {
   margin-top: 25px;
 }

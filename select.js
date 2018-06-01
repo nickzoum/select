@@ -51,6 +51,7 @@ var SelectBox = (function () {
       }
       columns.appendChild(columnNames);
       this.container.appendChild(columns);
+      this.container.setAttribute("style", "width: " + this.itemNameCodes.length + "50px;" + this.container.getAttribute("style"));
     }
     this.container.appendChild(this.ul);
     for (var index = 0; index < template.attributes.length; index++) {
@@ -102,6 +103,7 @@ var SelectBox = (function () {
    */
   function onItemChanged(text, id) {
     var self = this;
+    this.onSelect(id, true);
     if (this.tokenBox === true) {
       var box = EasyHtml.newDiv("token-item", text);
       var clear = EasyHtml.newButton("clear");
@@ -112,20 +114,20 @@ var SelectBox = (function () {
       this.input.focus();
       EasyHtml.addChildWithOrder(this.container, box, undefined, this.input);
       box.appendChild(clear);
-
-      function deleteBox(event) {
-        if (self.container.contains(box)) {
-          self.container.removeChild(box);
-        }
-        self.input.focus();
-        event.preventDefault();
-      }
     } else {
       this.input.setAttribute("item-id", id);
       this.input.value = text;
     }
-    this.onSelect(this.input, this.input.getAttribute("item-id"));
     this.firstValid = undefined;
+
+    function deleteBox(event) {
+      if (self.container.contains(box)) {
+        self.onSelect(id, false);
+        self.container.removeChild(box);
+      }
+      self.input.focus();
+      event.preventDefault();
+    }
   }
 
   /**
@@ -251,7 +253,7 @@ var SelectBox = (function () {
           tableList.appendChild(EasyHtml.newListItem(null, nameResult));
         }
         li.appendChild(tableList);
-        nameResult = Functions.getFirstProperty(text, [this.itemIDCode, "Id", "Code", "id", "code", "ID"])
+        nameResult = Functions.getFirstProperty(text, [this.itemIDCode, "Id", "Code", "id", "code", "ID"]);
         if (typeof nameResult === "function") nameResult = nameResult();
         li.setAttribute("item-id", nameResult);
       } else {
