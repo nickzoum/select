@@ -1,0 +1,32 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": false
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    },
+    "globals": {
+        "SelectBox": false
+    }
+}
