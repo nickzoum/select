@@ -36,7 +36,7 @@ var SelectBox = (function () {
     this.onSelect = onSelect;
     this.domList = [];
     var self = this;
-    this.input = EasyHtml.newInput(undefined, undefined, "true", undefined, "text");
+    this.input = EasyHtml.newInput(undefined, undefined, false, undefined, "text");
     if (readonly) this.input.setAttribute("readonly", "true");
     this.container.addEventListener("click", onContainerClicked);
     this.input.addEventListener("keydown", onKeyDown);
