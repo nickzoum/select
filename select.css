@@ -1,0 +1,229 @@
+.drop-down-parent input {
+  color: rgb(103, 106, 108);
+  border: 1px solid #e5e6e7;
+  background-color: white;
+  width: 276px !important;
+  margin-bottom: 15px;
+  border-radius: 1px;
+  padding: 6px 12px;
+  font-size: 14px;
+  display: block;
+  margin-top: 5px;
+}
+
+.drop-down-parent input::-ms-clear {
+  display: none;
+}
+
+ul.drop-down-list {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+  padding: 5px 0px;
+  list-style: none;
+  min-width: 160px;
+  display: none;
+  z-index: 3;
+  margin: 0;
+  width: calc(100% + 22px);
+  max-height: 265px;
+  overflow-y: scroll;
+}
+
+@keyframes dropDownAnimation {
+  from {
+    transform: translate(10px, 0px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+}
+
+.open>ul.drop-down-list {
+  animation-name: dropDownAnimation;
+  animation-duration: 0.6s;
+  display: inline-block;
+}
+
+ul.drop-down-list>li {
+  color: rgb(103, 106, 108);
+  text-align: start;
+  padding: 5px 20px;
+  font-size: 12px;
+  cursor: pointer;
+  margin: 2px 4px;
+}
+
+ul.drop-down-list>li:hover, ul.drop-down-list>li.active {
+  background-color: #f5f5f5;
+  color: #262626;
+}
+
+ul.drop-down-list>.seperator {
+  background-color: #e5e5e5;
+  margin: 9px 0;
+  height: 1px;
+  padding: 0;
+}
+
+ul.drop-down-list>.seperator:hover {
+  background-color: #e5e5e5;
+}
+
+.drop-down-parent {
+  border-radius: 4px;
+  width: calc(100% - 10px);
+  display: inline-block;
+  margin-bottom: 15px;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  max-height: 300px;
+}
+
+.drop-down-parent>input {
+  margin-bottom: 0;
+  outline: none;
+}
+
+.drop-down-parent>ul.drop-down-list {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border: 1px solid #e5e6e7;
+  left: 0px;
+  top: 100%;
+}
+
+.drop-down-parent.token-box>ul.drop-down-list {
+  left: -1px;
+}
+
+.drop-down-parent {
+  border: 1px solid #e5e6e7;
+  background-color: white;
+  display: inline-block;
+  padding-right: 5px;
+  cursor: text;
+}
+
+.drop-down-parent>input {
+  background: transparent !important;
+  border: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  width: 274px !important;
+}
+
+.drop-down-parent.token-box>.token-item {
+  background-color: #eaeaea;
+  border: 1px solid #d0d0d0;
+  -webkit-user-select: none;
+  text-overflow: ellipsis;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  position: relative;
+  border-radius: 6px;
+  padding: 4px 12px;
+  max-width: 260px;
+  overflow: hidden;
+  margin-left: 5px;
+  margin-top: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  float: left;
+}
+
+.drop-down-parent.token-box>.token-item:hover {
+  background-color: #f9f9f9;
+  border-color: #e6e6e6;
+}
+
+button.clear {
+  background-color: transparent;
+  transition: all 0.4s;
+  box-shadow: none;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  border: none;
+}
+
+button.clear::before {
+  content: '\2718';
+}
+
+.drop-down-parent>button.clear {
+  position: absolute;
+  opacity: 0;
+  right: 0px;
+  top: 3px;
+}
+
+.drop-down-parent.token-box>.token-item>button.clear {
+  position: absolute;
+  right: -4px;
+  opacity: 0;
+  top: -2px;
+}
+
+.drop-down-parent:hover>button.clear, .drop-down-parent.token-box>.token-item:hover>button.clear {
+  opacity: 0.6 !important;
+}
+
+button.clear:hover {
+  opacity: 0.8 !important;
+}
+
+button.clear:active {
+  opacity: 1 !important;
+}
+
+.token-item:last-of-type {
+  margin-bottom: 5px;
+}
+
+ul.table-list {
+  pointer-events: none;
+  list-style: none;
+  display: flex;
+  display: -ms-flexbox;
+  padding: 0;
+}
+
+ul.table-list>li {
+  margin: 0 auto;
+  float: left;
+}
+
+.column-title {
+  pointer-events: none;
+  position: absolute;
+  padding: 4px 22px;
+  z-index: 9999999;
+  top: 28px;
+  right: 0;
+  left: 0;
+}
+
+.column-title>ul {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  margin: 0;
+}
+
+.column-title>ul>li {
+  text-align: start;
+  font-size: 14px;
+  margin: 2px auto;
+}
+
+.column-title+ul.drop-down-list {
+  margin-top: 25px;
+}
